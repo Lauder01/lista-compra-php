@@ -1,5 +1,5 @@
 {
-    "name": "deg540/prueba-kata-php",
+    "name": "deg540/lista-compra-php",
     "description": "x",
     "type": "project",
     "require": {
@@ -12,12 +12,12 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Deg540\\PruebaKata\\": "src/"
+            "Deg540\\ListaCompra\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Deg540\\PruebaKataTest\\Test\\": "tests/"
+            "Deg540\\ListaCompraTest\\Test\\": "tests/"
         }
     },
     "config": {
