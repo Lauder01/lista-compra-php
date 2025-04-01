@@ -29,5 +29,13 @@ class StringListaCompraTest extends TestCase
         $resultado = $this->stringListaCompra->processInstruction("añadir pan");
 
         $this->assertEquals("pan x1", $resultado);
-}
+    }
+
+    /** @test */
+    public function givenNonExistingItemReturnErrorMessage()
+    {
+        $resultado = $this->stringListaCompra->processInstruction("eliminar leche");
+
+        $this->assertEquals("El producto seleccionado no existe", $resultado);
+    }
 }
