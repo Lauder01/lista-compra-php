@@ -1,31 +1,57 @@
-# String Calculator
+# 🛒 Kata: Lista de la compra 
 
-## Antes de comenzar
+Queremos construir una clase para gestionar una lista de la compra a través de una única función.  
+La lista comienza vacía. El usuario puede añadir productos, eliminarlos o vaciar la lista completamente. Todas las operaciones se realizan mediante instrucciones en forma de texto.  
+Tu tarea es implementar una clase que interprete estas instrucciones y mantenga el estado de la lista.  
 
-* Intenta no leer el enunciado completo antes de empezar, ve leyendo poco a poco mientras lo resuelves.
-* Haz sólo una tarea a la vez. El truco está en aprender a trabajar de forma incremental.
-* Asegúrate de testear únicamente las entradas correctas. No es necesario testear las entradas incorrectas para esta kata.
+## 🧱 Reglas generales 
 
-## Funcionalidad deseada
+- Solo puede haber una clase pública, con un único método público que reciba una instrucción (string) y devuelva el estado actual de la lista.
+- El método debe devolver un string con los productos actuales de la lista, separados por comas.
+- Los productos deben aparecer ordenados alfabéticamente (ignorando mayúsculas/minúsculas).
+- Los nombres de producto no distinguen mayúsculas: "Pan" y "pan" son el mismo producto.
 
-1. Crea una String Calculator con el método: int Add(string numbers)
-    * El parámetro del método puede contener 0, 1 o 2 números y devolverá su suma (para un string vacío devolverá 0). Por ejempo: "" o "1" o "1,2"
-    * Compieza por un test simple para un string vacío y luego para 1 y 2 números.
-    * Recuerda resolver el problema de la manera más simple posible para que te fuerce a escribir las pruebas que aún no se te habían ocurrido.
-    * Recuerda refactorizar después de conseguir pasar cada test.
-2. Permite al metodo "Add" manejar cualquier cantidad de números.
-3. Permite al método "add" manejar saltos de línea entre números en lugar de usar comas.
-    * La siguiente entrada es correcta: "1\n2,3" (el resultado será 6)
-    * La siguiente entrada NO es correcta: "1,\n" (no hace falta que la pruebes, es simplemente para clarificar)
-4. Soporta diferentes delimitadores
-    * Para cambiar un delimitador, el comienzo del string debe contener una línea separada que sea como esta: "//[delimitador]\n[números...]". Por ejemplo: "//;\n1;2" debe dar como resultado 3 donde el delimitador por defecto es ";".
-    * La primera línea es opcional. Todos los escenarios existentes hasta ahora, deben estar soportados.
-5. Llamar al método "Add" con números negativos deberá lanzar una excepción con el texto "negativos no soportados" y el número negativo que ha sido pasado. Si hay múltiples números negativos, muestra todos ellos en el mensaje de la excepción.
-6. Los numeros mayores de 1000 deben ser ignorados. Por ejemplo "2,1001" dará como resultado 2.
-7. Los delimitadores pueden ser de cualquier longitud con el siguiente formato: "//[delimiter]\n". Por ejemplo: "//[***]\n1***2***3" debe dar como resultado 6.
-8. Permite múltiples delimitadores de la siguiente manera: "//[delim1][delim2]\n". Por ejemplo: "//[*][%]\n1*2%3" debe dar como resultado 6.
-9. Asegúrate de que puedes manejar delimitadores de cualquier longitud mayor de un caracter.
+## ✅ Acciones que debe soportar
 
-## Créditos
+### Añadir productos
 
-[Kata original](http://osherove.com/tdd-kata-1/)
+- **Instrucción:** `añadir <nombre> [cantidad]`
+- Si no se indica cantidad, se asume `1`.
+- Si el producto ya existe en la lista, se suma la nueva cantidad a la anterior.
+
+### Eliminar productos:
+
+- **Instrucción:** `eliminar <nombre>`
+- Elimina completamente el producto de la lista.
+- Si el producto no existe, el método debe devolver exactamente:
+  `"El producto seleccionado no existe"`
+
+### Vaciar la lista
+
+- **Instrucción:** `vaciar`
+- Elimina todos los productos de la lista.
+
+## 📤 Formato de salida
+
+Después de cada instrucción válida, se debe devolver la lista completa como un string, con los productos separados por comas.
+Cada producto debe mostrarse en el siguiente formato:
+`<nombre> x<cantidad>`
+
+Si la lista está vacía, se devuelve una cadena vacía: `""`.
+
+## 📋 Criterios de evaluación y buenas prácticas 
+
+Además de que tu solución funcione correctamente, se valorarán los siguientes aspectos:  
+
+- ✅ Buena cobertura de tests y aplicación de TDD  
+- ✅ Clean Code y buen naming  
+- ✅ Buen uso de commits y ciclo de trabajo  
+
+### Buenas prácticas de commits:  
+
+- Cada commit debe representar un paso del ciclo TDD:  
+  - Un commit para cada test que pasa (verde).  
+  - Un commit para cada refactor (si lo hay).  
+- Usa el siguiente formato para los mensajes de commit:  
+  - `[verde] - Descripción clara del test que pasa`  
+  - `[refactor] - Descripción clara del cambio estructural o de estilo`  
