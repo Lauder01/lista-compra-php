@@ -42,6 +42,11 @@ class StringListaCompra
             return $this->removeItem($item);
         }
 
+        if ($action === "vaciar")
+        {
+            return $this->dumpList();
+        }
+
         return "";
     }
 
@@ -80,6 +85,17 @@ class StringListaCompra
         unset($this->listaCompra[$item]);
     
         return $this->formatList();
+    }
+
+    /**
+     * Vacía la lista por completo
+     *
+     */
+    private function dumpList(): string
+    {
+        $this->listaCompra = [];
+
+        return "";
     }
 
     /**

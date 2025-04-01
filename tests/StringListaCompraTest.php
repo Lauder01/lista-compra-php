@@ -47,4 +47,14 @@ class StringListaCompraTest extends TestCase
 
         $this->assertEquals("", $resultado);
     }
+
+    /** @test */
+    public function givenOrderToDumpListReturnListWithoutAnyItem()
+    {
+        $this->stringListaCompra->processInstruction("añadir pan");
+        $this->stringListaCompra->processInstruction("añadir leche");
+        $resultado = $this->stringListaCompra->processInstruction("vaciar");
+
+        $this->assertEquals("", $resultado);
+    }
 }
