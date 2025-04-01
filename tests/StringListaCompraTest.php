@@ -38,4 +38,13 @@ class StringListaCompraTest extends TestCase
 
         $this->assertEquals("El producto seleccionado no existe", $resultado);
     }
+
+    /** @test */
+    public function givenExistingItemReturnListWithoutRemovedItem()
+    {
+        $this->stringListaCompra->processInstruction("añadir pan");
+        $resultado = $this->stringListaCompra->processInstruction("eliminar pan");
+
+        $this->assertEquals("", $resultado);
+    }
 }

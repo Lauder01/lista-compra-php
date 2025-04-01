@@ -76,6 +76,8 @@ class StringListaCompra
         if (!isset($this->listaCompra[$item])) {
             return "El producto seleccionado no existe";
         }
+
+        unset($this->listaCompra[$item]);
     
         return $this->formatList();
     }
