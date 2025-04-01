@@ -12,7 +12,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Deg540\\PruebaKata.php\\": "src/"
+            "Deg540\\PruebaKata\\": "src/"
         }
     },
     "autoload-dev": {
