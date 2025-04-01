@@ -16,10 +16,18 @@ class StringListaCompraTest extends TestCase
     }
 
     /** @test */
-    public function devuelve_lista_vacia_al_iniciar()
+    public function givenNewListReturnEmptyList()
     {
         $resultado = $this->stringListaCompra->processInstruction("");
 
         $this->assertEquals("", $resultado);
     }
+
+    /** @test */
+    public function givenNewItemReturnListWithNewItemIncluded()
+    {
+        $resultado = $this->stringListaCompra->processInstruction("añadir pan");
+
+        $this->assertEquals("pan x1", $resultado);
+}
 }
